@@ -1,0 +1,16 @@
+<ion-view view-title="Threads">
+  <ion-content>
+<ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refreshThreads()">
+  </ion-refresher>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/threads/{{chat.Id}}/posts">
+
+        <h2>{{chat.Subject}} ({{chat.PostCount}})</h2>
+        <p>{{chat.AuthorUsername}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

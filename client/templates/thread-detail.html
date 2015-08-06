@@ -1,0 +1,25 @@
+<ion-view view-title="Posts">
+<ion-nav-buttons side="right">
+  <button class="button icon-right ion-chevron-down button-calm" ng-click="scrollDown()">
+    Bottom
+  </button>
+  <button class="button icon-right ion-chevron-up button-calm" ng-click="scrollUp()">
+    Top
+  </button>
+</ion-nav-buttons>
+  <ion-content>
+<ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="loadMore()">
+  </ion-refresher>
+    <ion-list>
+    <div class="item-text-wrap">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="post in posts.slice().reverse()">
+        <h2>{{post.authorUsername}}</h2>
+        <h4>{{ post.dateCreated | date:'d MMMM yyyy h:mma'}}</h4>
+        <p style="white-space:pre-line;" ng-bind-html="post.body | linky:'_blank'"></p>
+      </ion-item>
+    </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
